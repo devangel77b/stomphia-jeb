@@ -1,33 +1,53 @@
-\documentclass{jeb}
-\usepackage{graphics}
-\usepackage{placeins}
+\documentclass[10pt]{article}
 
+% necessary packages
+\usepackage{graphics} % for graphics
+\usepackage{siunitx} % for units
+\usepackage[round,authoryear]{natbib} % jeb style citations
+\bibliographystyle{jeb}
+\usepackage{authblk}
+
+% macros defined
+\newcommand{\Genus}[1]{\emph{#1}}
 \newcommand{\Stomphiacoccinea}{\Genus{Stomphia coccinea}}
-\newcommand{\Scoccinea}{\Genus{S. coccinea}}
-\newcommand{\Stomphia}{\Genus{S. coccinea}}
+\newcommand{\Scoccinea}{\Genus{S.~coccinea}}
+\newcommand{\Stomphia}{\Genus{S.~coccinea}}
 \newcommand{\Dermasteriasimbricata}{\Genus{Dermasterias imbricata}}
-\newcommand{\Dimbricata}{\Genus{D. imbricata}}
-\newcommand{\Dermasterias}{\Genus{D. imbricata}}
+\newcommand{\Dimbricata}{\Genus{D.~imbricata}}
+\newcommand{\Dermasterias}{\Genus{D.~imbricata}}
 
-\jebtitle{Biomechanics of swimming in the anemone \Stomphiacoccinea\ (Anthozoa: Actinaria)}
+% units defined
+\DeclareSIUnit\frame{frame}
+\DeclareSIUnit\pixel{pixel}
 
-\jebauthorlist{\jebauthor{Dennis~Evangelista}{1,*}}
+% for review only
+\usepackage{lineno}
+\usepackage{setspace}
+%\doublespacing % double space for review? check what JEB wants.
 
-\jebaffiliationlist{\jebaffiliation{1}{Department of Integrative Biology, University of California, Berkeley, 3060 Valley Life Sciences Building \#3140, Berkeley, CA 94720-3140, USA}}
+% title block info
+\title{Biomechanics of swimming in the anemone \Stomphiacoccinea\ (Anthozoa: Actinaria)}
+\author[1,2]{Dennis Evangelista\thanks{author for correspondence: devangel77b@gmail.com}}
+\affil[1]{Department of Integrative Biology, University of California, Berkeley, CA 94720, USA}
+\affil[2]{current address: Department of Biology, University of North Carolina at Chapel Hill, NC 27599, USA}
+\date{\today}
 
-\jebcontact{email: devangel@berkeley.edu}
 
-\jebsummary{The anemone \Stomphiacoccinea\ was filmed during escape swimming triggered by the leather star \Dermasteriasimbricata.  \Stomphia\ detaches from the bottom, swims up, and is carried by the current.  Analysis of the kinematics shows the mode of upward propulsion is not drag from the undulating column.  Based on simulations, \Stomphia\ swim upwards using lift-based modes on the oral disk; in other words, it flies.  The observed kinematics and comparison to the physics of falling, fluttering cards also suggest rotational modes of lift production augment the lift produced by steady airfoil modes of the oral disk. }
 
-\jebkeywords{ \Stomphiacoccinea, anemone, swimming, biomechanics, lift, drag, flow, escape response, lift augmentation}
 
-\jebshorttitle{Swimming in the anemone \Stomphia}
-\jebshortnames{D. Evangelista}
+
+
+
 
 \begin{document}
 \maketitle
+\begin{abstract}
+The anemone \Stomphiacoccinea\ was filmed during escape swimming triggered by the leather star \Dermasteriasimbricata.  \Stomphia\ detaches from the bottom, swims up, and is carried by the current.  Analysis of the kinematics shows the mode of upward propulsion is not drag from the undulating column.  Based on simulations, \Stomphia\ swim upwards using lift-based modes on the oral disk; in other words, it flies.  The observed kinematics and comparison to the physics of falling, fluttering cards also suggest rotational modes of lift production augment the lift produced by steady airfoil modes of the oral disk. 
+\end{abstract}
 
-\section{Introduction}
+\noindent{keywords: \Stomphiacoccinea, anemone, swimming, biomechanics, lift, drag, flow, escape response, lift augmentation}
+
+\section*{Introduction}
 The development of new modes of locomotion, such as the development of swimming by a benthic organism, presents challenging evolutionary questions where the hard constraints of physics and biomechanics can be informative.  Development of swimming is especially interesting in cnidarians, which diverged very early from other animals \citep{Collins:2002, Dawson:2004}.  Recent molecular phylogenies \citep{Collins:2002, Dawson:2004, Won:2001} and older phylogenies based on morphology \citep{Bridge:1992} place the sessile Anthozoa, including anemones and corals, as sister to other cnidarians, such as jellyfish and hydroids, most of whom have multicellular swimming forms at some point during their life cycles.  The phylogeny would imply that early during the evolution of cnidarians, an adventurous polyp started swimming, perhaps as one of the first multicellular swimmers.  
 	
 The biomechanics of swimming in medusoid cnidarians have been the subject of many papers \citep{Daniel:1982, Daniel:1985, McHenry:2003, Demont:1988}, but, curiously, not many papers have examined those few anemones that swim, such as \Stomphiacoccinea.  Upon contact with the leather star, \Dermasteriasimbricata, \Stomphia\ exhibits a stereotypical escape response behavior in which it elongates, detaches, extends the oral disk and swims by lateral flexion (Fig. 1, first described in \citet{Yentsch:1955}; further details and anatomy given in \citep{Sund:1958, Robson:1961}).  Previous studies of \Stomphia\ have focused mainly on the neural basis of this escape response and the proximate cues that elicit swimming, for example \citep{Hoyle:1960, Robson:1961, Robson:1961a, Robson:1963, Lawn:1976, Lawn:1980, Lawn:1976a, Ross:1964, Ross:1964a, Elliot:1989}.  \Dimbricata\ is a predator of \Stomphia, and surveys and field studies have documented that \Stomphia\ uses swimming to escape and redistribute in deeper water, away from \Dimbricata\ \citep{Dalby:1988, Hargrave:2004, Parker:1994}.
@@ -45,34 +65,34 @@ One possibility is that drag on the column propels the animal upwards, similar t
 	
 This paper describes a pilot study using kinematics from filmed swimming bouts to estimate the relative contributions of drag on the undulating column versus drag and lift from the oral disk.  These are used to evaluate possible mechanisms for force production during swimming in \Stomphia, namely (1) drag-based propulsion from the column;  or (2) lift-based propulsion modes.  In addition, bouts were conducted in still water and in moving flow, to examine if kinematics and swim distance varied with flow velocity.   
 
-\section{Materials and methods}
-\subsection{Animals}
-	\Stomphia\ were collected in the vicinity of Friday Harbor, San Juan Island, WA by SCUBA diving or dredging in the San Juan Channel.  Animals were maintained together in a flow through seawater table at local ambient seawater temperature (about 12\degC) with ambient light/dark cycles.  \Dimbricata\ was used to detach animals from the storage tank and transfer them to a tank for filming.   
+\section*{Materials and methods}
+\subsection*{Animals}
+	\Stomphia\ were collected in the vicinity of Friday Harbor, San Juan Island, WA by SCUBA diving or dredging in the San Juan Channel.  Animals were maintained together in a flow through seawater table at local ambient seawater temperature (about \SI{12}{\celsius}) with ambient light/dark cycles.  \Dimbricata\ was used to detach animals from the storage tank and transfer them to a tank for filming.   
 
-\subsection{Filming of swimming bouts}
-	After settling and resting for \unit[20]{minutes}, swimming bouts were induced by touching the animals with a \Dimbricata\ until the column extended, similar to methods described in \citep{Sund:1958}.  Swimming was filmed in still water in a 16 x 8 x 10 \unit{inch}\ (40 x 20 x 26 \unit{cm}) glass aquarium with a mirror placed to allow two views with a single camera.  Swimming was also filmed in a plexiglass tabletop flume with a 50 x 16 x 16 \unit{cm}\ working section, operating between 0.03 and 0.2 \unitfrac{m}{s}, following designs given in \citep{LaBarbera:1978}.  For data runs, \unitfrac[5]{cm}{s} flow was chosen as representative of slow currents in the subtidal where the animal is found.  A quick check showed animals tolerated flows up to about \unitfrac[10]{cm}{s}, above which they retracted all tentacles or lost attachment.  Both experimental setups are depicted in Fig. 2. 
+\subsection*{Filming of swimming bouts}
+	After settling and resting for \SI{20}{\minute}, swimming bouts were induced by touching the animals with a \Dimbricata\ until the column extended, similar to methods described in \citep{Sund:1958}.  Swimming was filmed in still water in a \SI{16 x 8 x 10}{inch} (\SI{40 x 20 x 26}{\centi\meter}) glass aquarium with a mirror placed to allow two views with a single camera.  Swimming was also filmed in a plexiglass tabletop flume with a \SI{50 x 16 x 16}{\centi\meter} working section, operating between \SIrange{0.03}{0.2}{\meter\per\second}, following designs given in \citep{LaBarbera:1978}.  For data runs, \SI{0.05}{\meter\per\second} flow was chosen as representative of slow currents in the subtidal where the animal is found.  A quick check showed animals tolerated flows up to about \SI{0.1}{\meter\per\second}, above which they retracted all tentacles or lost attachment.  Both experimental setups are depicted in Fig. 2. 
 
 \begin{figure}
-\caption{ (A) Filming setup for still water, 16 x 8 x 10 \unit{inch}\ (40 x 20 x 26 \unit{cm}) glass aquarium with a \unit[45]{degree}\ mirror.  (B) Filming setup for �ow.  Flume with 50 x 16 x 16 \unit{cm}\ working section, operating between 0 and \unitfrac[0.2]{m}{s}.  Flume design as described in \citep{LaBarbera:1978}.}
+\caption{ (A) Filming setup for still water, \SI{16 x 8 x 10}{inch} (\SI{40 x 20 x 26}{\centi\meter}) glass aquarium with a \ang{45} mirror.  (B) Filming setup for flow.  Flume with \SI{50 x 16 x 16}{\centi\meter} working section, operating between \SIrange{0}{0.2}{\meter\per\second}.  Flume design as described in \citep{LaBarbera:1978}.}
 \label{fig:2}
 \end{figure}
 	
-Filming was at \unitfrac[30]{frames}{second}, 960 x 540 pixel resolution using a Sony DCR-HC42 camcorder (Sony Corp., Tokyo, Japan).    Five bouts were filmed in still water, split among four animals.  Six bouts were filmed in \unitfrac[5]{cm}{s} flow, also split among four animals.  For the purposes of this pilot study, basic swim kinematics were analyed for one bout in flow and one bout in still water, and detailed kinematics were analyzed for one bout in flow only. 
+Filming was at \SI{30}{\frame\per\second}, \SI{960 x 540}{\pixel} resolution using a Sony DCR-HC42 camcorder (Sony Corp., Tokyo, Japan).    Five bouts were filmed in still water, split among four animals.  Six bouts were filmed in \SI{5}{\centi\meter\per\second} flow, also split among four animals.  For the purposes of this pilot study, basic swim kinematics were analyed for one bout in flow and one bout in still water, and detailed kinematics were analyzed for one bout in flow only. 
 
-\subsection{Data analysis}
+\subsection*{Data analysis}
 	Movements were digitized using GraphClick (Arizona Software, Neuch\^{a}tel, Switzerland) to obtain the $x$ (horizontal, along the flow direction) and $y$ (vertical) positions of the landmarks (mouth, center, foot, leading edge of oral disk, trailing edge of oral disk) shown in Fig. 3.  Further analysis was conducted in Matlab (The MathWorks, Natick, MA) to examine the relative contributions of forces from the column and the oral disk.  
 
 \begin{figure}
-\caption{Example video frame (A) and digitization of landmarks in \Stomphia~(B): mouth (red), center (blue), foot (green), leading edge of oral disk (orange) and trailing edge of oral disk (magenta).  Angles computed from landmarks, with respect to horizontal, include the oral disk and tentacle angle ($\alpha$), body angle ($\beta$), and foot angle ($\gamma$). Flow is from left to right.  Scale between tape stripes \unit[50]{cm}. }
+\caption{Example video frame (A) and digitization of landmarks in \Stomphia~(B): mouth (red), center (blue), foot (green), leading edge of oral disk (orange) and trailing edge of oral disk (magenta).  Angles computed from landmarks, with respect to horizontal, include the oral disk and tentacle angle ($\alpha$), body angle ($\beta$), and foot angle ($\gamma$). Flow is from left to right.  Scale between tape stripes \SI{50}{\centi\meter}. }
 \label{fig:3}
 \end{figure}
 	
 Models of (1) column drag and (2) oral disk lift were created, based on the body angles and positions measured from video.  Column drag was approximated using a model similar to the model for sperm given in \citep{Gray:1955}.  The column was broken into small elements each with drag due to the movement through the fluid; these were summed to determine the net horizontal and vertical force and pitching moment on the body.  Lift on the oral disk was explicitly modeled using the angle of attack and surge velocity.   Additionally, models of the overall body forces were integrated and fitted to the observed body positions to check 
 
-\section{Results}
+\section*{Results}
 	The responses of \Stomphia\ to \Dimbricata\ were as described in \citep{Yentsch:1955, Sund:1958, Robson:1961}.  \Stomphia\ were presented with \Dimbricata\ approximately 30 times over the course of all experiments; in only one case did \Stomphia\ fail to respond. 
 	
-An example video frame is shown in Fig. 3.  Fig. 4A shows the digitized body positions at \unit[0.2]{s} intervals.  The inset of Fig. 4A shows a multiple exposure photograph of the swimming movement at \unit[2.5]{s} intervals.  Body angles, calculated from the landmark positions, are plotted in Fig. 4B.  Table ~\ref{table:1} compares basic swim kinematics with and without flow.  Additional nondimensionalized parameters are given in Tables~\ref{table:2} and \ref{table:3}, including Reynolds and Strouhal numbers and nondimensionalized shape parameters.
+An example video frame is shown in Fig. 3.  Fig. 4A shows the digitized body positions at \SI{0.2}{\second} intervals.  The inset of Fig. 4A shows a multiple exposure photograph of the swimming movement at \SI{2.5}{\second} intervals.  Body angles, calculated from the landmark positions, are plotted in Fig. 4B.  Table ~\ref{table:1} compares basic swim kinematics with and without flow.  Additional nondimensionalized parameters are given in Tables~\ref{table:2} and \ref{table:3}, including Reynolds and Strouhal numbers and nondimensionalized shape parameters.
 
 \begin{figure}
 \caption{Digitized kinematics from sequence with �ow.  A.  Raw movement of body showing oral disk (blue), column (green) and center of mass (red).  Inset shows composite multiple exposure.  B.  Reduced kinematics (no smoothing, only computed angles) showing oral disk angle of attack and column angles. Angles as de�ned in Fig. 2B.  }
@@ -80,13 +100,13 @@ An example video frame is shown in Fig. 3.  Fig. 4A shows the digitized body pos
 \end{figure}
 
 \begin{table}
-\caption{Basic swim kinematics for \Stomphia\ swimming, one animal with \unit[0.08]{m} oral disk diameter.  Within an animal, basic swim kinematics do not vary between no flow and \unitfrac[0.05]{m}{s} flow (ANOVA, $p=0.41$, 19 strides in 1 animal at low flow, 6 strides in 1 animal at \unitfrac[0.05]{m}{s} flow).}
-\jebtablefont
+\caption{Basic swim kinematics for \Stomphia\ swimming, one animal with \SI{0.08}{\meter} oral disk diameter.  Within an animal, basic swim kinematics do not vary between no flow and \SI{0.05}{\meter\per\second} flow (ANOVA, $p=0.41$, 19 strides in 1 animal at low flow, 6 strides in 1 animal at \SI{0.05}{\meter\per\second} flow).}
+%\jebtablefont
 \begin{center}
 \begin{tabular}{lll}
-                      		& No flow 			& \unitfrac[0.05]{m}{s} flow 	\\ \hline
-Swim period, s 		& $2.6 \pm 0.4$ 	& $2.5 \pm 0.1$ 			\\ 
-Swim frequency, Hz 	& $0.40 \pm 0.07$	& $0.40\pm 0.02$			\\ 
+                      		& No flow 			& \SI{0.05}{\meter\per\second} flow 	\\ \hline
+Swim period, \si{\second} 		& $2.6 \pm 0.4$ 	& $2.5 \pm 0.1$ 			\\ 
+Swim frequency, \si{\hertz} 	& $0.40 \pm 0.07$	& $0.40\pm 0.02$			\\ 
 Duty cycle 		& $0.51 \pm 0.04$	& $0.49 \pm 0.03$			\\
 \end{tabular}
 \end{center}
@@ -95,16 +115,16 @@ Duty cycle 		& $0.51 \pm 0.04$	& $0.49 \pm 0.03$			\\
 
 
 \begin{table}
-\caption{Nondimensionalized swim parameters, after \citep{Pesavento:2004, Andersen:2005, Andersen:2005a, Taylor:2003}.  Birds and fish swim at Strouhal numbers in the range between 0.2-0.4, suggesting \Stomphia\ swimming utilizes different lift production modes than flapping flight.}
-\jebtablefont
+\caption{Nondimensionalized swim parameters, after \citep{Pesavento:2004, Andersen:2005, Andersen:2005a, Taylor:2003}.  Birds and fish swim at Strouhal numbers in the range between \numrange{0.2}{0.4}, suggesting \Stomphia\ swimming utilizes different lift production modes than flapping flight.}
+%\jebtablefont
 \begin{center}
 \begin{tabular}{ll}
-Average speed, $v$, \unitfrac{m}{s} 					& 0.0242 \\
-Oral disk diameter, $D$, \unit{m}	 				& 0.08 \\
-Kinematic viscosity, $\nu$, \unitfrac{m$^{\textsf 2}$}{s} 	& $1 \times 10^{-6}$ \\
+Average speed, $v$, \si{\meter\per\second} 					& 0.0242 \\
+Oral disk diameter, $D$, \si{\meter}	 				& 0.08 \\
+Kinematic viscosity, $\nu$, \si{\meter\squared\per\second} 	& $1 \times 10^{-6}$ \\
 Reynolds Number $Re=vD/\nu$  					& $1.9 \times 10^3$ \\
-Surge amplitude, $A$, \unit{m} 						& 0.03 \\
-Swim frequency, $f$, \unit{Hz} 						& 0.04 \\
+Surge amplitude, $A$, \si{\meter} 						& 0.03 \\
+Swim frequency, $f$, \si{\hertz} 						& 0.04 \\
 Strouhal number, $St=fA/v$  						& 0.5 \\
 \end{tabular}
 \end{center}
@@ -113,27 +133,27 @@ Strouhal number, $St=fA/v$  						& 0.5 \\
 
 \begin{table*}
 \caption{Comparison of flutter frequency using nondimensionalized swim parameters, after \citep{Pesavento:2004, Andersen:2005, Andersen:2005a, Taylor:2003}.  Based on the parameters $\beta$ and $I^*$, the phase diagrams of tables of \citet{Pesavento:2004} suggest \Stomphiacoccinea\ is in a region where flutter is expected to occur.  When the flutter frequency observed in \citep{Pesavento:2004} is scaled using the scaling of \citep{Mahadevan:1999}, $\omega \sim h^{0.5}D^{-1}$, the swim frequency observed in \Scoccinea\ is observed.}
-\jebtablefont
+%\jebtablefont
 \begin{center}
 \begin{tabular}{lll}
 		& Fluttering card \citep{Pesavento:2004}	& \Scoccinea\ (this study) \\
 		\hline
-thickness, $h$, m			& 0.0008			& 0.05 \\
-width or diameter, $D$, m		& 0.011			& 0.08 \\
+thickness, $h$, \si{\meter}			& 0.0008			& 0.05 \\
+width or diameter, $D$, \si{\meter}		& 0.011			& 0.08 \\
 nondimensional shape, $\beta=h/D$ & 0.07		& 0.05 \\
 nondimesional moment of inertia, $I^*$ & 0.16 (paper in air) & 0.02 (negatively buoyant mesoglea) \\
 Reynolds number $Re$ & 1147	& 1900 \\
-flutter frequency, $\omega$, rad/s	& 6.8	 	& 2.38, scaled from \citep{Pesavento:2004} using \citep{Mahadevan:1999} \\
-flutter frequency, $f$, Hz & 1.1 & 0.37 (predicted), $0.40 \pm 0.02$ (obseved)\\
+flutter frequency, $\omega$, \si{\radian\per\second}	& 6.8	 	& 2.38, scaled from \citep{Pesavento:2004} using \citep{Mahadevan:1999} \\
+flutter frequency, $f$, \si{\hertz} & 1.1 & 0.37 (predicted), $0.40 \pm 0.02$ (obseved)\\
 \hline
 \end{tabular}
 \end{center}
 \label{table:3} 
 \end{table*}
 
-\section{Discussion}
-\subsection{Basic swim kinematics}
-	There is no difference in the frequency, period, or duty cycle during swimming between flow and no flow conditions (ANOVA, $p=0.41$, 19 strides from one run in one animal in no flow; 6 strides for one run in one animal in flow).  Differences in takeoff kinematics were not studied and could be important; qualitatively, it seemed easier for \Stomphia\ to takeoff in flow.  \Stomphia\ pulsed at about \unit[0.4]{Hz} and a 50\% duty cycle.  The shape of the column when bent was essentially an arc segment of a circle, consistent with simple beam bending of a fluid-filled mesoglea column with a constant applied bending moment from longitudinal muscles of uniform strength, evenly activated along one side of the column. 
+\section*{Discussion}
+\subsection*{Basic swim kinematics}
+	There is no difference in the frequency, period, or duty cycle during swimming between flow and no flow conditions (ANOVA, $p=0.41$, 19 strides from one run in one animal in no flow; 6 strides for one run in one animal in flow).  Differences in takeoff kinematics were not studied and could be important; qualitatively, it seemed easier for \Stomphia\ to takeoff in flow.  \Stomphia\ pulsed at about \SI{0.4}{\hertz} and a 50\% duty cycle.  The shape of the column when bent was essentially an arc segment of a circle, consistent with simple beam bending of a fluid-filled mesoglea column with a constant applied bending moment from longitudinal muscles of uniform strength, evenly activated along one side of the column. 
 	
 Horizontal movement, along the flow direction, appears to be well modeled by a simple body drag coefficient of the form $F=\frac{1}{2} C_D \rho u^2 A$ (Fig. 5). This was obtained by numerically differentiating the position to obtain surge velocity relative to the freestream velocity, then integrating the force twice numerically and fitting to the observed center of mass $x$ position.  In general, this method would be sensitive to noise in the observed positions, and can only suggest that the observe movements correlate with body drag; a direct measurement of drag on a tethered animal or model is needed to confirm this, however, physically the result makes sense.  Body movement and dynamics in the vertical direction, however, require further explanation. 
 
@@ -142,7 +162,7 @@ Horizontal movement, along the flow direction, appears to be well modeled by a s
 \label{fig:5}
 \end{figure}
 
-\subsection{Column drag does not propel the anemone upwards}
+\subsection*{Column drag does not propel the anemone upwards}
 	Based on the column shape, which is always an arc segment, and the symmetric, 50\% duty cycle, time-reversible movement, column fluid forces due to tangential and normal drag should sum to zero over the entire cycle \citep{Purcell:1977}.  A symmetric, C-shaped \Stomphia\ column is not like an S-shaped sperm tail with a backwards-traveling wave \citep{Gray:1955}.  This was verified with the simulation of drag from an idealized, arc-shaped wagging column, which found zero net force due to column undulation (Fig. 6).    If column drag were the main means of upward propulsion, its effectiveness would be much reduced because the tentacles are completely extended and splayed, forming a draggy disk.    
 
 \begin{figure}
@@ -152,8 +172,8 @@ along a swinging arc segment.  Arc segment shape matches video and is appropriat
 \label{fig:6}
 \end{figure}
 
-\subsection{Column undulation drives dynamic lift modes of the oral disk}
-	Why should the oral disk remain extended?  One possibility is for parachuting or downwind gliding, however, neither would require undulations.  Properly timed undulations would result in flapping of the oral disk, increasing the lift generated.  To examine this, a simulation of an idealized flapping oral disk with variable angle of attack was created (Figs. 7 and 8).  When pitching of the oral disk is completely in phase with the column, no net lift is produced (Fig. 7).  However, if oral disk pitching and column motion can be brought slightly out of phase, then net lift can be produced.  Such phase alterations could be created by the small column drag forces and moments that are produced during undulation.  The phase shift of oral disk surge motion relative to the center of mass was determined to be 14$^\circ$ (\unit[0.245]{rad}) by de-trending and fitting to a sinusoid of \unit[0.4]{Hz} frequency.  This results in a small time average lift force of \unit[0.005]{N}; approximately enough to lift a 3\% heavy anemone (Fig. 8).  The net lift force seems small; in many fliers, lift predictions from steady airfoil theory under-predict what is actually observed because unsteady modes augment lift production.  
+\subsection*{Column undulation drives dynamic lift modes of the oral disk}
+	Why should the oral disk remain extended?  One possibility is for parachuting or downwind gliding, however, neither would require undulations.  Properly timed undulations would result in flapping of the oral disk, increasing the lift generated.  To examine this, a simulation of an idealized flapping oral disk with variable angle of attack was created (Figs. 7 and 8).  When pitching of the oral disk is completely in phase with the column, no net lift is produced (Fig. 7).  However, if oral disk pitching and column motion can be brought slightly out of phase, then net lift can be produced.  Such phase alterations could be created by the small column drag forces and moments that are produced during undulation.  The phase shift of oral disk surge motion relative to the center of mass was determined to be \ang{14} (\SI{0.245}{\radian}) by de-trending and fitting to a sinusoid of \SI{0.4}{\hertz} frequency.  This results in a small time average lift force of \SI{0.005}{\newton}; approximately enough to lift a 3\% heavy anemone (Fig. 8).  The net lift force seems small; in many fliers, lift predictions from steady airfoil theory under-predict what is actually observed because unsteady modes augment lift production.  
 	
 \begin{figure}
 \caption{Model of an isolated surging and pitching oral disk.  Frequency and amplitude of angle of attack and surge velocity were chosen based on kinematics.  Zero net lift is produced.}
@@ -161,38 +181,39 @@ along a swinging arc segment.  Arc segment shape matches video and is appropriat
 \end{figure}
 
 \begin{figure}
-\caption{Idealized model of a surging and pitching oral disk, continued.  Compared to the previous �gure, with the addition of a very minor (15$^{\circ}$) phase shift between surge velocity and pitching, as indicated in the kinematic data, enough net lift is produced to lift a 3\% heavy anemone. }
+\caption{Idealized model of a surging and pitching oral disk, continued.  Compared to the previous �gure, with the addition of a very minor (\ang{15}) phase shift between surge velocity and pitching, as indicated in the kinematic data, enough net lift is produced to lift a 3\% heavy anemone. }
 \label{fig:8}
 \end{figure}
 \begin{figure}
 	
 Vertical movement, transverse to the flow direction, was examined in (Fig.~\ref{fig:9}). As in Fig.~\ref{fig:5}, the position data was numerically differentiated to obtain surge velocity and oral disk angular velocity.  Forces were estimated assuming (1) no drag, only body momentum; (2) vertical components of column drag only (from Fig.~\ref{fig:6}); (3) oral disk lift from pitch and surge only of the form $F_L = \frac{1}{2}\rho u^2 \frac{dC_\alpha}{d\alpha}\alpha  A$ (from Fig~\ref{fig:8}); and augmented oral disk lift including rotational modes of the form $F_{L,rot} = C \omega u_{surge}$. As in Fig.~\ref{fig:5}, this method is expected to be sensitive to noise.  The improved fit in Fig.~\ref{fig:9} provides some suggestion that lift from rotational modes of the oral disk is important. One unsteady mechanism that may be operating in \Stomphia\ is rotational lift.  In a fluttering card, additional lift, beyond what is produced by the surge and pitch of the card, is produced by the rotation of the card.
 
-\caption{Comparison of measured kinematics in vertical ($y$) direction versus motion predicted for various modes of force production.  Forces were estimated assuming (1) no drag, only body momentum; (2) vertical components of column drag only (from Fig.~\ref{fig:6}); (3) oral disk lift from pitch and surge only of the form $F_L = 0.5 dC_L/d\alpha \alpha u_{surge}^2 A$ (from Fig.~\ref{fig:8}); and augmented oral disk lift including rotational modes of the form $F_{L,rot} = C\omega u_{surge}$.  Terms due to rotational modes of of the oral disk provide the best �t, suggesting lift augmentation mechanisms similar to those in �uttering cards \citep{Pesavento:2004, Andersen:2005a, Andersen:2005}.  Flow visualization is needed to positively identify  mechanisms.}
+\caption{Comparison of measured kinematics in vertical ($y$) direction versus motion predicted for various modes of force production.  Forces were estimated assuming (1) no drag, only body momentum; (2) vertical components of column drag only (from Fig.~\ref{fig:6}); (3) oral disk lift from pitch and surge only of the form $F_L = 0.5 dC_L/d\alpha \alpha u_{surge}^2 A$ (from Fig.~\ref{fig:8}); and augmented oral disk lift including rotational modes of the form $F_{L,rot} = C\omega u_{surge}$.  Terms due to rotational modes of of the oral disk provide the best fit, suggesting lift augmentation mechanisms similar to those in fluttering cards \citep{Pesavento:2004, Andersen:2005a, Andersen:2005}.  Flow visualization is needed to positively identify  mechanisms.}
 \label{fig:9}
 \end{figure}
  	
-The basic swim parameters listed in Table~\ref{table:2} can be nondimensionalized for comparison with other flapping swimmers and fliers \citep{Taylor:2003}.  \Stomphia\ appears to swim with a Strouhal number (reduced frequency) of 0.5.  Birds and fish swim at Strouhal numbers in the range 0.2-0.4 \citep{Taylor:2003}, suggesting \Stomphia\ flapping is a little different, perhaps due to unsteady mechanisms.
+The basic swim parameters listed in Table~\ref{table:2} can be nondimensionalized for comparison with other flapping swimmers and fliers \citep{Taylor:2003}.  \Stomphia\ appears to swim with a Strouhal number (reduced frequency) of \num{0.5}.  Birds and fish swim at Strouhal numbers in the range \numrange{0.2}{0.4} \citep{Taylor:2003}, suggesting \Stomphia\ flapping is a little different, perhaps due to unsteady mechanisms.
 	  
 Using further nondimensional parameters, it is possible to compare the flutter frequency of falling cards \citep{Pesavento:2004, Andersen:2005, Andersen:2005a} with the swim frequency of \Stomphia.  Based on the parameters $\beta$ and $I^*$, the phase diagrams and tables of \citet{Pesavento:2004} suggest \Stomphia\ is in a region where flutter is expected to occur.  When the flutter frequency observed in \citep{Pesavento:2004} is scaled using the scaling of \citep{Mahadevan:1999}, $\omega \sim h^{0.5} D^{-1}$, the swim frequency observed in \Stomphia\ is obtained.
 	
 Based on these results, it would be worthwhile to obtain kinematics at higher sampling rates and perform more in depth analyses.  These should include computational models of the unsteady hydrodynamics of the oral disk, such as in \citep{Mahadevan:1999, Pesavento:2004, Andersen:2005, Andersen:2005a}.  Experimental verification should include force measurements and flow visualization (e.g. particle image velocimetry) on live animals or on physical models of Stomphia \citep{Koehl:2003, Vogel:2003}.  The experiments could include amputation or cutting in the live animal, or model manipulations to alter the shape or kinematics or isolate the oral disk and column \citep{Koehl:2003, Vogel:2003}.  Physical models could be constructed with preserved animals or with actuated rubber puppets, as was done for jellyfish (DE, unpublished data).   
 
-\subsection{Comparisons to other taxa}
+\subsection*{Comparisons to other taxa}
 	One unidentified abyssal sabellid polychaete and the sea cucumber {\em Enypniastes} appear to use similar modes of swimming \citep{Fothergill:2002, Ruppert:2003}.  The pitching and downwind soaring also appear similar to dynamic soaring gaits in birds, reviewed in \citep{Vogel:2003}.  Curiously, the swimming mode of \Stomphia\ does not appear convergent with other swimming anemones; \Genus{Boloceroides} uses tentacular rowing in what appears to be a reverse-jellyfish (oral-first) jetting movement \citep{Lawn:1982, Josephson:1966}.  Along the bottom, \Stomphia\ were sometimes observed to tip over.  The resulting swimming motion was more similar to splayed-leg crawling of tetrapods. 
 	
-It remains unclear the minimum size below which this type of swimming is not possible. Observations of swimming in the pteropod \Genus{Clione antarctica} \citep{Childress:2004} would suggest a critical Reynolds number of 5-20.  For \Stomphia\ swimming at constant frequency, this would predict a minimum size to swim of one tenth the length of the animals studied, or approximately \unit[8]{mm} oral disk diameter.  This estimate needs to be verified with an actual \unit[8]{mm} animal.   
+It remains unclear the minimum size below which this type of swimming is not possible. Observations of swimming in the pteropod \Genus{Clione antarctica} \citep{Childress:2004} would suggest a critical Reynolds number of \numrange{5}{20}.  For \Stomphia\ swimming at constant frequency, this would predict a minimum size to swim of one tenth the length of the animals studied, or approximately \SI{8}{\milli\meter} oral disk diameter.  This estimate needs to be verified with an actual \SI{8}{\milli\meter} animal.   
 
 
-\subsection{Evolutionary significance of oral disk unsteady lift}
-	If jellyfish are the cnidarian equivalent of rockets, then \Stomphia\ may be the cnidarian equivalent of a helicopter.  However, \Stomphia\ achieves this without much specialized machinery; it does not look remarkably different from typical non-swimming anemones.  The kinematics and nondimensional parameters observed here suggest \Stomphia\ may be in a regime where unsteady hydrodynamics and modes of lift augmentation occur.  This raises the question of the role of such unsteady mechanisms in an �improbable� swimmer or flyer.  When unsteady modes of lift augmentation are seen (as in wing rotation in \Genus{Drosophila}, clap and fling, or wake capture) they are usually assumed to be derived conditions, evolved only in extreme performers \citep{Dickinson:1996}.  In \Stomphia, a swimmer without specialized structures for swimming that utilizes the most efficient mode, evolution stumbled into whatever mode it could get.  With poorly designed lifting surfaces, unsteady mechanisms and interactions are more likely.   Such modes may also provide a way to exploit passive dynamics to make life easier on muscles as they are pressed into new locomotory functions, like resonances in jellyfish and scallops \citep{Demont:1988, Cheng:1996}.
+\subsection*{Evolutionary significance of oral disk unsteady lift}
+	If jellyfish are the cnidarian equivalent of rockets, then \Stomphia\ may be the cnidarian equivalent of a helicopter.  However, \Stomphia\ achieves this without much specialized machinery; it does not look remarkably different from typical non-swimming anemones.  The kinematics and nondimensional parameters observed here suggest \Stomphia\ may be in a regime where unsteady hydrodynamics and modes of lift augmentation occur.  This raises the question of the role of such unsteady mechanisms in an ``improbable'' swimmer or flyer.  When unsteady modes of lift augmentation are seen (as in wing rotation in \Genus{Drosophila}, clap and fling, or wake capture) they are usually assumed to be derived conditions, evolved only in extreme performers \citep{Dickinson:1996}.  In \Stomphia, a swimmer without specialized structures for swimming that utilizes the most efficient mode, evolution stumbled into whatever mode it could get.  With poorly designed lifting surfaces, unsteady mechanisms and interactions are more likely.   Such modes may also provide a way to exploit passive dynamics to make life easier on muscles as they are pressed into new locomotory functions, like resonances in jellyfish and scallops \citep{Demont:1988, Cheng:1996}.
 	
-	More work is needed to identify the unsteady modes at work.  If lift augmentation from oral disk rotational modes is ultimately found to occur in \Stomphia\ using flow visualization, it would be the first demonstration of lift augmentation in an anemone, the first demonstration of business-card flutter modes in any animal, and a crucial detailed look at the hydrodynamics of swimming in a basal, non-medusan cnidarian.  This body of work, combined with studies of other swimming anemones and ontogenetic studies of ephyrae, could provide much needed insight into the evolution of what may have been the world�s first multicellular swimmers.  
+	More work is needed to identify the unsteady modes at work.  If lift augmentation from oral disk rotational modes is ultimately found to occur in \Stomphia\ using flow visualization, it would be the first demonstration of lift augmentation in an anemone, the first demonstration of business-card flutter modes in any animal, and a crucial detailed look at the hydrodynamics of swimming in a basal, non-medusan cnidarian.  This body of work, combined with studies of other swimming anemones and ontogenetic studies of ephyrae, could provide much needed insight into the evolution of what may have been the world's first multicellular swimmers.  
 
-%\section{List of symbols}
-%\section{Appendix}
+%\section*{List of symbols}
+%\section*{Appendix}
 
-\jebacknowledgements{I thank Molly Jacobs, Mar Wonham, Robin Elahi, Kevin Turner, and the rest of the 2008 Friday Harbor Labs Marine Invertebrate Zoology class for helpful suggestions and lively discussions.  I also thank Robin Elahi and Kevin Turner and some anonymous \Stomphia\ and \Dermasterias\ pet owners at FHL for use of their animals; Emily Carrington for use of lab space and a flume; Tom Daniel for use of a camera and various lenses; Craig Staude for use of a lens.  Finally, I thank my funding sources: UW FHL financial aid, Eric and Mary Horvitz, SICB Libby Hyman Award, and Mimi Koehl.}
+\section*{Acknowledgements}
+I thank M Jacobs, M Wonham, R Elahi, K Turner, and the rest of the 2008 Friday Harbor Labs Marine Invertebrate Zoology class for helpful suggestions and lively discussions.  I also thank numerous anonymous \Stomphia\ and \Dermasterias\ pet owners at FHL for use of their animals; E Carrington for use of lab space and a flume.  Finally, I thank my funding sources: UW FHL financial aid, Eric and Mary Horvitz, and the SICB Libby Hyman Award.
 
 \bibliography{references/stomphia}
 

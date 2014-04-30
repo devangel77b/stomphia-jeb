@@ -8,5 +8,6 @@ syntax: glob
 *.DS_Store
 *.log
 *.pdf
+old/*
 
 syntax: regexp
